@@ -19,7 +19,7 @@ export default function Footer() {
 
         {/* Logo Side */}
         <div className={css.logo}>
-          <Image src={Logo} alt="" width={50} height={50} />
+          <Image src={Logo} alt="" width={50} height={50}/>
           <span>Speed'ZA</span>
         </div>
     </div>

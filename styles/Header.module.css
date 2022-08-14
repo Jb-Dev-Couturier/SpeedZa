@@ -2,10 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: .3rem 2rem;
+  padding: 0.3rem 2rem;
   border-bottom: 1px solid var(--themeBlue);
   box-shadow: var(--shadow);
-  background: var(--background-color)
+  background: var(--background-color);
 }
 
 .logo {
@@ -20,8 +20,7 @@
   font-family: var(--fontTitle);
   font-weight: bold;
   font-size: 2rem;
-  color: var(--themeBlack)
-  
+  color: var(--themeBlack);
 }
 
 .menu {
@@ -35,11 +34,11 @@
   font-size: 1.3rem;
 }
 .menu > li {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
   padding: 5px 20px;
-  border-radius: 30% 70% 30% 70% / 100% 0% 100% 0% ;
-    justify-content: space-around;
+  border-radius: 30% 70% 30% 70% / 100% 0% 100% 0%;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -47,7 +46,7 @@
   cursor: pointer;
   background: var(--themeBlue);
   color: var(--themeYellow);
-  border-radius: 80% 20% 42% 58% / 24% 70% 30% 76%  ;
+  border-radius: 80% 20% 42% 58% / 24% 70% 30% 76%;
   transform: scale(1.3) translateY(10px);
 }
 
@@ -81,12 +80,10 @@
 .iconShop {
   font-size: 45px;
   color: var(--themeBlue);
-  transition: .3s ease-in-out;
-  
+  transition: 0.3s ease-in-out;
 }
 
-.iconShop:hover{
-    transform: scale(1.3) translateY(10px);
-    color: var(--themeYellow);
-    
+.iconShop:hover {
+  transform: scale(1.3) translateY(10px);
+  color: var(--themeYellow);
 }

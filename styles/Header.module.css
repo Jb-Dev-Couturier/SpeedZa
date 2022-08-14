@@ -1,0 +1,92 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .3rem 2rem;
+  border-bottom: 1px solid var(--themeBlue);
+  box-shadow: var(--shadow);
+  background: var(--background-color)
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  flex: 1;
+}
+
+.logo > span {
+  font-family: var(--fontTitle);
+  font-weight: bold;
+  font-size: 2rem;
+  color: var(--themeBlack)
+  
+}
+
+.menu {
+  flex: 1;
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  font-size: 1.3rem;
+}
+.menu > li {
+    display: flex;
+    flex-direction: column;
+  padding: 5px 20px;
+  border-radius: 30% 70% 30% 70% / 100% 0% 100% 0% ;
+    justify-content: space-around;
+  align-items: center;
+}
+
+.menu > li:hover {
+  cursor: pointer;
+  background: var(--themeBlue);
+  color: var(--themeYellow);
+  border-radius: 80% 20% 42% 58% / 24% 70% 30% 76%  ;
+  transform: scale(1.3) translateY(10px);
+}
+
+.rightside {
+  flex: 1;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.cart {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  z-index: 99;
+}
+
+.badge {
+  position: absolute;
+  display: flex;
+  background-color: var(--themeRed);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  right: -0.5rem;
+}
+
+.iconShop {
+  font-size: 45px;
+  color: var(--themeBlue);
+  transition: .3s ease-in-out;
+  
+}
+
+.iconShop:hover{
+    transform: scale(1.3) translateY(10px);
+    color: var(--themeYellow);
+    
+}

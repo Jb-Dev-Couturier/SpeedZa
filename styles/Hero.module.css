@@ -67,8 +67,9 @@
 .imageContainer{
     width: 38rem;
     position: absolute;
-    top: -2rem;
-    left: -2rem;
+    top: -5rem;
+    left: 0;
+    
 }
 
 

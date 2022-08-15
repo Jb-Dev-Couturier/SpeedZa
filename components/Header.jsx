@@ -26,10 +26,9 @@ export default function Header() {
       {/* Menu Side */}
       <ul className={css.menu}>
         <li>
-          <HomeIcon /> Acceuil{' '}
+          <HomeIcon /> Acceuil
         </li>
         <li>
-          {' '}
           <RestaurantMenuIcon />
           Menu
         </li>
@@ -40,10 +39,10 @@ export default function Header() {
       </ul>
 
       {/* Cart Side */}
-      <div className={css.rightside}>
+      <div className={css.rightSide}>
         <Link href={'/cart'}>
         <div className={css.cart}>
-          <ShoppingCartIcon className={css.iconShop} />
+          <ShoppingCartIcon className={css.iconShop} style={{fontSize:'45px'}}/>
           <div className={css.badge}>{items}</div>
         </div>
         </Link>

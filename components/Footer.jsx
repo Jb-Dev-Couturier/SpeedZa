@@ -11,17 +11,17 @@ export default function Footer() {
     <div className={css.container}>
       <span>TOUT DROITS RESERVER</span>
       <div className={css.social}>
-        <AndroidIcon className={css.iconSocial} />
-        <AppleIcon className={css.iconSocial} />
-        <FacebookIcon className={css.iconSocial} />
-        <InstagramIcon className={css.iconSocial} />
+        <AndroidIcon className={css.iconSocial} style={{ fontSize: '45px' }} />
+        <AppleIcon className={css.iconSocial} style={{ fontSize: '45px' }} />
+        <FacebookIcon className={css.iconSocial} style={{ fontSize: '45px' }} />
+        <InstagramIcon className={css.iconSocial}style={{fontSize:'45px'}} />
       </div>
 
-        {/* Logo Side */}
-        <div className={css.logo}>
-          <Image src={Logo} alt="" width={50} height={50}/>
-          <span>Speed'ZA</span>
-        </div>
+      {/* Logo Side */}
+      <div className={css.logo}>
+        <Image src={Logo} alt="" width={50} height={50} />
+        <span>Speed'ZA</span>
+      </div>
     </div>
   );
 }

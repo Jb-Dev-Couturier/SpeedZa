@@ -1,0 +1,35 @@
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.formContainer>input,
+.formContainer>textarea{
+    width: 100%;
+    outline: none;
+    padding: 0.8rem;
+    border: 1px solid var(--themeYellow);
+    border-radius: .4rem;
+    font-size: 1.2rem;
+}
+
+.formContainer>span>span{
+   font-weight: bold; 
+   color: var(--themeYellow);
+   font-size: 1.5rem;
+}
+
+.formContainer>button{
+    padding: 0.9rem;
+    font-size: 1rem;
+    background-color: limegreen;
+}
+
+.formContainer>button:hover{
+    transform: scale(1);
+    letter-spacing: .1rem;
+    background-color: limegreen;
+    color: var(--themeBlack);
+}

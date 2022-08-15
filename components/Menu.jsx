@@ -4,6 +4,7 @@ import css from '../styles/Menu.module.css';
 import Link from 'next/link';
 
 export default function Menu({ pizzas }) {
+
   return (
     <div className={css.container}>
       <div className={css.heading}>

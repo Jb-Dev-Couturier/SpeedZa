@@ -4,9 +4,21 @@ import { client, urlFor } from '../../lib/client';
 import css from '../../styles/Pizza.module.css';
 import LeftArrow from '../../assets/arrowLeft.png';
 import RightArrow from '../../assets/arrowRight.png';
+import { useState } from 'react';
 
 export default function Pizza({ pizza }) {
   const src = urlFor(pizza.image).url();
+  const [Size, setSize] = useState(1);
+  const [Quantity, setQuantity] = useState(1);
+  //Handle Quantity
+
+  const handleQuan = (type) => {
+    type === 'inc'
+      ? setQuantity((prev) => prev + 1)
+      : Quantity === 1
+      ? null
+      : setQuantity((prev) => prev - 1);
+  };
 
   return (
     <Layout>
@@ -32,14 +44,29 @@ export default function Pizza({ pizza }) {
           </span>
 
           <span>
-            {pizza.price[1]} <span style={{ color: 'red' }}>€</span>{' '}
+            {pizza.price[Size]} <span style={{ color: 'red' }}>€</span>{' '}
           </span>
           <div className={css.size}>
             <span>Taille</span>
             <div className={css.sizeVariants}>
-              <div>Normal</div>
-              <div>Grande</div>
-              <div>Extra</div>
+              <div
+                onClick={() => setSize(0)}
+                className={Size === 0 ? css.selected : ''}
+              >
+                Normal
+              </div>
+              <div
+                onClick={() => setSize(1)}
+                className={Size === 1 ? css.selected : ''}
+              >
+                Grande
+              </div>
+              <div
+                onClick={() => setSize(2)}
+                className={Size === 2 ? css.selected : ''}
+              >
+                Extra
+              </div>
             </div>
           </div>
           {/* quantity pizza */}
@@ -53,22 +80,22 @@ export default function Pizza({ pizza }) {
                 height={30}
                 width={30}
                 objectFit="contain"
+                onClick={() => handleQuan('dec')}
               />
-              <span>1</span>
+              <span>{Quantity}</span>
               <Image
                 src={RightArrow}
                 alt=""
                 height={30}
                 width={30}
                 objectFit="contain"
+                onClick={() => handleQuan('inc')}
               />
             </div>
           </div>
 
           {/* button */}
-          <div className={`btn ${css.btn}`}>
-            Ajouter
-          </div>
+          <div className={`btn ${css.btn}`}>Ajouter</div>
         </div>
       </div>
     </Layout>

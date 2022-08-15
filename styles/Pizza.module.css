@@ -1,0 +1,104 @@
+.container {
+  display: flex;
+  padding: 2rem;
+  gap: 5rem;
+  margin-top: 3rem;
+}
+
+.ImageWrapper {
+  position: relative;
+  width: 40%;
+  height: 25rem;
+  overflow: hidden;
+  border-radius: 2rem;
+  border: 1px solid var(--themeBlack);
+  box-shadow: var(--shadow);
+}
+.ImageWrapper:hover {
+  border: 1px solid var(--themeYellow);
+  box-shadow: var(--shadowHover);
+}
+
+.ImageWrapper > span > img {
+  transition: 1s ease-in-out;
+  box-shadow: var(--shadow);
+}
+
+.ImageWrapper > span > img:hover {
+  transform: scale(1.2);
+}
+
+.right{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    font-weight: bold;
+    justify-content: space-between;
+}
+
+.right>:nth-child(2){
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--themeBlack);
+}
+.right>:nth-child(3){
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: var(--gray);
+    font-style: italic;
+}
+.ingredientText{
+    text-decoration: underline;
+}
+
+.size{
+    display: flex;
+    gap: 3rem;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+.sizeVariants{
+    display: flex;
+    gap: .6rem;
+    font-weight: normal;
+    color: var(--themeYellow);
+    font-size: 1.1rem;
+}
+
+
+.sizeVariants>div{
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 0.3rem 1.5rem;
+border: 2px solid var(--themeYellow);
+border-radius: 2rem;
+}
+
+
+.sizeVariants>div:hover{
+    background-color: var(--themeYellow);
+    color: var(--themeBlue);
+    cursor: pointer;
+}
+
+.quantity{
+    display: flex;
+    font-size: 2rem;
+    font-weight: 600;
+    gap: 3rem;
+}
+
+.counter{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn {
+    font-weight: normal;
+    padding: .5rem 1rem;
+    font-size: 1.5rem;
+}

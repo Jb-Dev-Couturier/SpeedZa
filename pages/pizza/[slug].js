@@ -1,0 +1,98 @@
+import Image from 'next/image';
+import Layout from '../../components/Layout';
+import { client, urlFor } from '../../lib/client';
+import css from '../../styles/Pizza.module.css';
+import LeftArrow from '../../assets/arrowLeft.png';
+import RightArrow from '../../assets/arrowRight.png';
+
+export default function Pizza({ pizza }) {
+  const src = urlFor(pizza.image).url();
+
+  return (
+    <Layout>
+      {/* Left Side */}
+      <div className={css.container}>
+        <div className={css.ImageWrapper}>
+          <Image
+            loader={() => src}
+            src={src}
+            alt=""
+            layout="fill"
+            unoptimized
+            objectFit="cover"
+          />
+        </div>
+        {/* Right Side */}
+        <div className={css.right}>
+          <span># {pizza.name}</span>
+          <span>{pizza.description}</span>
+          <span>
+            <span className={css.ingredientText}>Ingredients</span> :{' '}
+            {pizza.details}
+          </span>
+
+          <span>
+            {pizza.price[1]} <span style={{ color: 'red' }}>€</span>{' '}
+          </span>
+          <div className={css.size}>
+            <span>Taille</span>
+            <div className={css.sizeVariants}>
+              <div>Normal</div>
+              <div>Grande</div>
+              <div>Extra</div>
+            </div>
+          </div>
+          {/* quantity pizza */}
+          <div className={css.quantity}>
+            <span>Quantité</span>
+
+            <div className={css.counter}>
+              <Image
+                src={LeftArrow}
+                alt=""
+                height={30}
+                width={30}
+                objectFit="contain"
+              />
+              <span>1</span>
+              <Image
+                src={RightArrow}
+                alt=""
+                height={30}
+                width={30}
+                objectFit="contain"
+              />
+            </div>
+          </div>
+
+          {/* button */}
+          <div className={`btn ${css.btn}`}>
+            Ajouter
+          </div>
+        </div>
+      </div>
+    </Layout>
+  );
+}
+
+export async function getStaticPaths() {
+  const paths = await client.fetch(
+    `*[_type=="pizza" && defined(slug.current)][].slug.current`
+  );
+  return {
+    paths: paths.map((slug) => ({ params: { slug } })),
+    fallback: 'blocking',
+  };
+}
+
+export async function getStaticProps(context) {
+  const { slug = '' } = context.params;
+  const pizza = await client.fetch(
+    `*[_type=="pizza" && slug.current == '${slug}'][0]`
+  );
+  return {
+    props: {
+      pizza,
+    },
+  };
+}

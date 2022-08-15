@@ -40,7 +40,7 @@ export default function Services() {
               layout="intrinsic"
             />
           </div>
-          <span>Commande Simplifié</span>
+          <span>Livraison Offerte</span>
           <span>une livraison toujours à l'heure encore plus rapide</span>
         </div>
         <div className={css.feature}>
@@ -53,7 +53,7 @@ export default function Services() {
             />
           </div>
 
-          <span>Commande Simplifié</span>
+          <span>Controle Qualité</span>
           <span>Pas seulement rapide, attentif a la qualité aussi...</span>
         </div>
       </div>

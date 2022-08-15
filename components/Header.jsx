@@ -6,6 +6,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import { useStore } from '../store/store';
+import Link from 'next/link';
 
 export default function Header() {
 
@@ -40,10 +41,12 @@ export default function Header() {
 
       {/* Cart Side */}
       <div className={css.rightside}>
+        <Link href={'/cart'}>
         <div className={css.cart}>
           <ShoppingCartIcon className={css.iconShop} />
           <div className={css.badge}>{items}</div>
         </div>
+        </Link>
       </div>
     </div>
   );

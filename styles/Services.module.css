@@ -35,11 +35,12 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    font-size: 1.2rem;
 }
 
 .imageWrapper{
-    width: 10rem;
-    height: 10rem;
+    width: 15rem;
+    height: 15rem;
 }
 
 .feature>:nth-child(2){

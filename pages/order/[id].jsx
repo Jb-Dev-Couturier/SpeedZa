@@ -69,7 +69,10 @@ export default function Orders({ order }) {
         </div>
         <div className={css.statusContainer}>
           <div className={css.status}>
-            <PaymentsIcon className={css.iconMaterials} />
+            <PaymentsIcon
+              className={css.iconMaterials}
+              style={{ fontSize: '70px' }}
+            />
             <span>Paiments</span>
             {order.method === 0 ? (
               <span className={css.pending}> A la livraison</span>
@@ -78,7 +81,10 @@ export default function Orders({ order }) {
             )}
           </div>
           <div className={css.status}>
-            <LocalPizzaIcon className={css.iconMaterials} />
+            <LocalPizzaIcon
+              className={css.iconMaterials}
+              style={{ fontSize: '70px' }}
+            />
             <span>EnCuisson</span>
             {order.status === 1 && (
               <div className={css.spinner}>
@@ -88,7 +94,10 @@ export default function Orders({ order }) {
             {order.status > 1 && <span className={css.completed}>Terminé</span>}
           </div>
           <div className={css.status}>
-            <DeliveryDiningIcon className={css.iconMaterials} />
+            <DeliveryDiningIcon
+              className={css.iconMaterials}
+              style={{ fontSize: '70px' }}
+            />
             <span>EnLivraison</span>
             {order.status === 2 && (
               <div className={css.spinner}>
@@ -98,7 +107,10 @@ export default function Orders({ order }) {
             {order.status > 2 && <span className={css.completed}>Terminé</span>}
           </div>
           <div className={css.status}>
-            <InventoryIcon className={css.iconMaterials} />
+            <InventoryIcon
+              className={css.iconMaterials}
+              style={{ fontSize: '70px' }}
+            />
             <span>Livré</span>
             {order.status === 3 && (
               <div className={css.spinner}>

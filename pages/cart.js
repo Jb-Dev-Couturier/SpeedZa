@@ -5,19 +5,20 @@ import css from '../styles/Cart.module.css';
 import { urlFor } from '../lib/client';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import toast, { Toaster } from 'react-hot-toast';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import OrderModal from '../components/OrderModal';
 import { useRouter } from 'next/router';
 
+// import getStripe from "../lib/stripePromise";
 export default function cart() {
   const CartData = usestore((state) => state.cart);
   const removePizza = usestore((state) => state.removePizza);
   const [PaymentMethod, setPaymentMethod] = useState(null);
-  const router = useRouter();
   const [Order,setOrder] = useState(
     typeof window !== 'undefined' && localStorage.getItem('order')
-  )
-
+    )
+    
+    const router = useRouter();
   //total HandleRemove
   const handleRemove = (i) => {
     removePizza(i);
@@ -79,7 +80,6 @@ export default function cart() {
                           objectFit="cover"
                           width={85}
                           height={85}
-                          unoptimized
                         />
                       </td>
                       <td>{pizza.name}</td>

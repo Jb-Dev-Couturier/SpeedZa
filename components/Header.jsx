@@ -10,12 +10,12 @@ import { usestore } from '../store/store';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-export default function Header() {
+export default function Header({ home }) {
+  const items = usestore((state) => state.cart.pizzas.length);
   const [Order, setOrder] = useState(null);
   useEffect(() => {
     setOrder(localStorage.getItem('order'));
   }, []);
-  const items = usestore((state) => state.cart.pizzas.length);
   return (
     <div className={css.header}>
       {/* Logo Side */}

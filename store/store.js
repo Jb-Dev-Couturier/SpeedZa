@@ -1,33 +1,54 @@
 import create from 'zustand';
+import { persist } from 'zustand/middleware';
 
 export const usestore = create((set) => ({
-  //cart
+  // cart
   cart: {
     pizzas: [],
+    quantity: 0,
+    total: 0,
   },
-
-  //add pizza in cart
   addPizza: (data) =>
     set((state) => ({
       cart: {
         pizzas: [...state.cart.pizzas, data],
       },
     })),
-
-  //Remove pizza in cart
   removePizza: (index) =>
     set((state) => ({
-      cart: {
-        pizzas: state.cart.pizzas.filter((_, i) => i != index),
-      },
+      cart: { pizzas: state.cart.pizzas.filter((_, i) => i != index) },
     })),
-
-  //Reset  cart
-  resetCard: () => {
+  resetCart: () =>
     set(() => ({
       cart: {
         pizzas: [],
+        quantity: 0,
+        total: 0,
       },
+    })),
+
+  // orders
+  order: '',
+  addOrder: (id) => {
+    set(() => ({
+      order: id,
+    }));
+  },
+  resetOrder: () => {
+    set(() => ({
+      order: '',
+    }));
+  },
+
+  // reset Store
+  resetStore: () => {
+    set(() => ({
+      cart: {
+        pizzas: [],
+        quantity: 0,
+        total: 0,
+      },
+      order: '',
     }));
   },
 }));

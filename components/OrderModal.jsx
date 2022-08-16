@@ -11,6 +11,8 @@ export default function OrderModal({ opened, setOpened, PaymentMethod }) {
 
   const router = useRouter();
   const [FormData, setFormData] = useState({});
+  const resetCard = usestore((state) => state.resetCart);
+  const total = typeof window !== 'undefined' && localStorage.getItem('total');
 
   const handleInput = (e) => {
     setFormData({ ...FormData, [e.target.name]: e.target.value });
@@ -28,8 +30,6 @@ export default function OrderModal({ opened, setOpened, PaymentMethod }) {
     router.push(`/order/${id}`)
   };
 
-  const resetCard = usestore((state) => state.resetCard);
-  const total = typeof window !== 'undefined' && localStorage.getItem('total');
 
   return (
     <Modal

@@ -6,7 +6,7 @@ export default {
   fields: [
     {
       name: 'image',
-      title: 'image',
+      title: 'Image Pizza',
       type: 'image',
       options:{
         hotspot:true
@@ -14,7 +14,7 @@ export default {
     },
     {
         name: 'name',
-        title: 'name',
+        title: 'Nom Pizza',
         type:'string'
     },
     {
@@ -28,7 +28,7 @@ export default {
     },
     {
         name:'price',
-        title:'price',
+        title:'prix',
         type: 'array',
         of:[{type:'number'}]
     },

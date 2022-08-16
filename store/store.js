@@ -21,4 +21,13 @@ export const useStore = create((set) => ({
         pizzas: state.cart.pizzas.filter((_, i) => i != index),
       },
     })),
+
+  //Reset  cart
+  resetCard: () => {
+    set(() => ({
+      cart: {
+        pizzas: [],
+      },
+    }));
+  },
 }));

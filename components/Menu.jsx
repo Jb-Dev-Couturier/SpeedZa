@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function Menu({ pizzas }) {
 
   return (
-    <div className={css.container}>
+    <div className={css.container} id="menu">
       <div className={css.heading}>
         <span>NOTRE MENU</span>
         <span>Un menu toujours la</span>
@@ -19,7 +19,6 @@ export default function Menu({ pizzas }) {
           const src = urlFor(pizza.image).url();
           return (
             <div className={css.pizza} key={id}>
-
               <Link href={`./pizza/${pizza.slug.current}`}>
                 <div className={css.ImageWrapper}>
                   <Image

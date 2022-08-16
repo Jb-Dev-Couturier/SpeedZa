@@ -31,10 +31,12 @@ export default function Header() {
             <HomeIcon /> Acceuil
           </li>
         </Link>
-        <li>
-          <RestaurantMenuIcon />
-          Menu
-        </li>
+        <Link href="../#menu">
+          <li>
+            <RestaurantMenuIcon />
+            Menu
+          </li>
+        </Link>
         <li>
           <ContactSupportIcon />
           Contact

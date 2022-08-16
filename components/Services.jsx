@@ -7,7 +7,7 @@ import Services3 from '../assets/s3.webp';
 export default function Services() {
   return (
     <>
-      <div className={css.heading}>
+      <div className={css.heading} >
         <span>NOS SERVICES</span>
         <span>Votre Plat preferé</span>
         <span>Livraison Offertes</span>

@@ -4,14 +4,14 @@ import { useStore } from '../store/store';
 import css from '../styles/Cart.module.css';
 import { urlFor } from '../lib/client';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import toast, {Toaster} from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import { useState } from 'react';
 import OrderModal from '../components/OrderModal';
 
 export default function cart() {
   const CartData = useStore((state) => state.cart);
   const removePizza = useStore((state) => state.removePizza);
-  const [PaymentMethod, setPaymentMethod] = useState(null)
+  const [PaymentMethod, setPaymentMethod] = useState(null);
 
   //total HandleRemove
   const handleRemove = (i) => {
@@ -23,10 +23,10 @@ export default function cart() {
     CartData.pizzas.reduce((a, b) => a + b.quantity * b.price, 0);
 
   //total function
-  const handleOnDelivery = ()=>{
+  const handleOnDelivery = () => {
     setPaymentMethod(0);
-    typeof window !== 'undefined' && localStorage.setItem('total', total())
-  }
+    typeof window !== 'undefined' && localStorage.setItem('total', total());
+  };
   return (
     <Layout>
       <div className={css.container}>
@@ -34,13 +34,15 @@ export default function cart() {
         <div className={css.details}>
           <table className={css.table}>
             <thead>
-              <th>Pizza</th>
-              <th>Nom</th>
-              <th>Taille</th>
-              <th>Prix</th>
-              <th>Quantité</th>
-              <th>Total</th>
-              <th> </th>
+              <tr>
+                <th>Pizza</th>
+                <th>Nom</th>
+                <th>Taille</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
             </thead>
             <tbody className={css.tbody}>
               {CartData.pizzas.length > 0 &&
@@ -112,10 +114,9 @@ export default function cart() {
       <Toaster />
       {/* Modal */}
       <OrderModal
-      opened = {PaymentMethod === 0}
-      setOpened={setPaymentMethod}
-      PaymentMethod={PaymentMethod}
-      
+        opened={PaymentMethod === 0}
+        setOpened={setPaymentMethod}
+        PaymentMethod={PaymentMethod}
       />
     </Layout>
   );

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Layout from '../components/Layout';
-import { useStore } from '../store/store';
+import { usestore } from '../store/store';
 import css from '../styles/Cart.module.css';
 import { urlFor } from '../lib/client';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
@@ -10,8 +10,8 @@ import OrderModal from '../components/OrderModal';
 import { useRouter } from 'next/router';
 
 export default function cart() {
-  const CartData = useStore((state) => state.cart);
-  const removePizza = useStore((state) => state.removePizza);
+  const CartData = usestore((state) => state.cart);
+  const removePizza = usestore((state) => state.removePizza);
   const [PaymentMethod, setPaymentMethod] = useState(null);
   const router = useRouter();
   const [Order,setOrder] = useState(

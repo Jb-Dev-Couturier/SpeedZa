@@ -6,7 +6,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
-import { useStore } from '../store/store';
+import { usestore } from '../store/store';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -15,7 +15,7 @@ export default function Header() {
   useEffect(() => {
     setOrder(localStorage.getItem('order'));
   }, []);
-  const items = useStore((state) => state.cart.pizzas.length);
+  const items = usestore((state) => state.cart.pizzas.length);
   return (
     <div className={css.header}>
       {/* Logo Side */}

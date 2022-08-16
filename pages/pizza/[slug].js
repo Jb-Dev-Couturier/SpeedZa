@@ -9,20 +9,19 @@ import { useStore } from '../../store/store';
 import toast, {Toaster} from 'react-hot-toast'
 
 export default function Pizza({ pizza }) {
-  const src = urlFor(pizza.image).url();
   const [Size, setSize] = useState(1);
   const [Quantity, setQuantity] = useState(1);
-
+  
   //Handle Quantity function
-
+  
   const handleQuan = (type) => {
     type === 'inc'
-      ? setQuantity((prev) => prev + 1)
-      : Quantity === 1
-      ? null
-      : setQuantity((prev) => prev - 1);
+    ? setQuantity((prev) => prev + 1)
+    : Quantity === 1
+    ? null
+    : setQuantity((prev) => prev - 1);
   };
-
+  
   //add to cart function
   const addPizza = useStore((state)=>state.addPizza)
   const addToCart = () =>{
@@ -30,7 +29,8 @@ export default function Pizza({ pizza }) {
     console.log('Pizza Ajouter aux store')
     toast.success(`${pizza.name} a été ajouter au panier`);
   }
-
+  const src = urlFor(pizza.image).url();
+  
   return (
     <Layout>
       {/* Left Side */}

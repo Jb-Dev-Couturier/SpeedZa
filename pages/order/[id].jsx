@@ -7,6 +7,7 @@ import LocalPizzaIcon from '@mui/icons-material/LocalPizza';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import Spinner from '../../assets/spinner.svg';
+import { useEffect } from 'react';
 
 export const getServerSideProps = async ({ params }) => {
   const query = `*[_type == 'order' && _id == '${params.id}']`;
@@ -20,6 +21,12 @@ export const getServerSideProps = async ({ params }) => {
 };
 
 export default function Orders({ order }) {
+
+    useEffect(()=>{
+        if(order.status>3){
+            localStorage.clear()
+        }
+    }, [order])
   return (
     <Layout>
       <div className={css.container}>
@@ -72,20 +79,33 @@ export default function Orders({ order }) {
           </div>
           <div className={css.status}>
             <LocalPizzaIcon className={css.iconMaterials} />
-            <span>En cuisson</span>
-            {order.status === 1 &&(
-                <div className={css.spinner}>
-                    <Image src={Spinner} alt=''/>
-                </div>
+            <span>EnCuisson</span>
+            {order.status === 1 && (
+              <div className={css.spinner}>
+                <Image src={Spinner} alt="" />
+              </div>
             )}
+            {order.status > 1 && <span className={css.completed}>Terminé</span>}
           </div>
           <div className={css.status}>
             <DeliveryDiningIcon className={css.iconMaterials} />
-            <span>En livraison</span>
+            <span>EnLivraison</span>
+            {order.status === 2 && (
+              <div className={css.spinner}>
+                <Image src={Spinner} alt="" />
+              </div>
+            )}
+            {order.status > 2 && <span className={css.completed}>Terminé</span>}
           </div>
           <div className={css.status}>
             <InventoryIcon className={css.iconMaterials} />
             <span>Livré</span>
+            {order.status === 3 && (
+              <div className={css.spinner}>
+                <Image src={Spinner} alt="" />
+              </div>
+            )}
+            {order.status > 3 && <span className={css.completed}>Terminé</span>}
           </div>
         </div>
       </div>

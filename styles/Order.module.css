@@ -69,12 +69,12 @@
     width: 3rem;
     position: relative;
     align-items: center;
-    width: 100%;
+    
 }
 
 .spinner{
     position: absolute;
-    left: -0.5rem;
+    left: -1.5rem;
     top: -1rem;
     width: 6rem;
 }
@@ -82,6 +82,15 @@
 .pending{
     width: max-content;
     background: var(--themeYellow);
+    padding: .5rem;
+    font-size: .8rem;
+    border-radius: 1rem;
+    color: white;
+}
+
+.completed{
+    width: max-content;
+    background: limegreen;
     padding: .5rem;
     font-size: .8rem;
     border-radius: 1rem;

@@ -5,15 +5,16 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import HomeIcon from '@mui/icons-material/Home';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import { useStore } from '../store/store';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export default function Header() {
-
-  //state in terminal
-  const state = useStore((state) => state);
-
-
+  const [Order, setOrder] = useState(null);
+  useEffect(() => {
+    setOrder(localStorage.getItem('order'));
+  }, []);
   const items = useStore((state) => state.cart.pizzas.length);
   return (
     <div className={css.header}>
@@ -25,9 +26,11 @@ export default function Header() {
 
       {/* Menu Side */}
       <ul className={css.menu}>
-        <li>
-          <HomeIcon /> Acceuil
-        </li>
+        <Link href="../">
+          <li>
+            <HomeIcon /> Acceuil
+          </li>
+        </Link>
         <li>
           <RestaurantMenuIcon />
           Menu
@@ -41,11 +44,26 @@ export default function Header() {
       {/* Cart Side */}
       <div className={css.rightSide}>
         <Link href={'/cart'}>
-        <div className={css.cart}>
-          <ShoppingCartIcon className={css.iconShoping} style={{fontSize:'45px', transition:'0.3s ease-in-out'}}/>
-          <div className={css.badge}>{items}</div>
-        </div>
+          <div className={css.cart}>
+            <ShoppingCartIcon
+              className={css.iconShoping}
+              style={{ fontSize: '45px', transition: '0.3s ease-in-out' }}
+            />
+            {items != '' && <div className={css.badge}>{items}</div>}
+          </div>
         </Link>
+
+        {Order && (
+          <Link href={`/order/${Order}`}>
+            <div className={css.cart}>
+              <ReceiptLongIcon
+                className={css.iconShoping}
+                style={{ fontSize: '45px', transition: '0.3s ease-in-out' }}
+              />
+              {Order != '' && <div className={css.badge}>1</div>}
+            </div>
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -77,13 +77,13 @@
   right: -0.5rem;
 }
 
-.iconShop {
+.iconShoping {
   font-size: 45px;
   color: var(--themeBlue);
   transition: 0.3s ease-in-out;
 }
 
-.iconShop:hover {
+.iconShoping:hover {
   transform: scale(1.3) translateY(10px);
   color: var(--themeYellow);
 }

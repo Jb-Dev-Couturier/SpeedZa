@@ -42,7 +42,7 @@ export default function Header() {
       <div className={css.rightSide}>
         <Link href={'/cart'}>
         <div className={css.cart}>
-          <ShoppingCartIcon className={css.iconShop} style={{fontSize:'45px'}}/>
+          <ShoppingCartIcon className={css.iconShoping} style={{fontSize:'45px', transition:'0.3s ease-in-out'}}/>
           <div className={css.badge}>{items}</div>
         </div>
         </Link>

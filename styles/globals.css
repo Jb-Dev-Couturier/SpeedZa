@@ -83,6 +83,7 @@ body {
   background-blend-mode: overlay, overlay, overlay, normal;
   background-attachment: fixed;
   background-size: cover;
+  overflow-x:hidden;
 }
 
 /* width */

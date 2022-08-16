@@ -2,9 +2,6 @@ import css from '../styles/Header.module.css';
 import Image from 'next/image';
 import Logo from '../assets/Logo.png';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import HomeIcon from '@mui/icons-material/Home';
-import ContactSupportIcon from '@mui/icons-material/ContactSupport';
-import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import { usestore } from '../store/store';
 import Link from 'next/link';
@@ -28,17 +25,17 @@ export default function Header({ home }) {
       <ul className={css.menu}>
         <Link href="../">
           <li>
-            <HomeIcon /> Acceuil
+             Acceuil
           </li>
         </Link>
         <Link href="../#menu">
           <li>
-            <RestaurantMenuIcon />
+            
             Menu
           </li>
         </Link>
         <li>
-          <ContactSupportIcon />
+          
           Contact
         </li>
       </ul>

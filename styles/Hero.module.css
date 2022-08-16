@@ -1,7 +1,6 @@
 .container {
   display: flex;
   position: relative;
-  width: 100%;
 }
 
 .leftSide {
@@ -65,10 +64,10 @@
 }
 
 .imageContainer {
-  width: 50rem;
+  width: 38rem;
   position: absolute;
   top: -5rem;
-  left: 5rem;
+  left: -5rem;
 }
 
 .iconPhone {
@@ -83,8 +82,8 @@
   width: max-content;
   padding: 1rem;
   border-radius: 5rem;
-  top: 4rem;
-  left: 0rem;
+  top: 6rem;
+  left: -6rem;
   gap: 1rem;
   background-color: var(--pink);
   box-shadow: var(--shadow);
@@ -115,14 +114,15 @@
   padding: 0.5rem;
   border-radius: 0.5rem;
   position: absolute;
-  bottom: -2rem;
-  left: 29rem;
+  bottom: 4rem;
+  left: 19rem;
   width: max-content;
+  transition: all 300ms ease;
 }
 
 .Pizza > :nth-child(1) {
-  width: 9rem;
-  height: 6rem;
+  width: 6rem;
+  height: 4rem;
   overflow: hidden;
   border-radius: 0.5rem;
 }
@@ -139,6 +139,12 @@
   animation: vibrate-1 1s infinite;
   cursor: pointer;
 }
+@media screen and (max-width: 1000px){
+  .rightSide{
+    display: none;
+  }
+}
+
 
 /**
  * ----------------------------------------

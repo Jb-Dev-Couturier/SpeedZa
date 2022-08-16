@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.3rem 2rem;
+  padding: 1rem;
   border-bottom: 1px solid var(--themeBlue);
   box-shadow: var(--shadow);
   background: var(--background-color);
@@ -12,35 +12,26 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 1rem;
+  gap: .5rem;
   flex: 1;
 }
 
 .logo > span {
   font-family: var(--fontTitle);
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: var(--themeBlack);
 }
 
 .menu {
-  flex: 1;
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-  justify-content: center;
-  align-items: center;
-  z-index: 99;
-  font-size: 1.3rem;
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    flex: 1;
+    justify-content: center;
+    z-index: 99;
 }
-.menu > li {
-  display: flex;
-  flex-direction: column;
-  padding: 5px 20px;
-  border-radius: 30% 70% 30% 70% / 100% 0% 100% 0%;
-  justify-content: space-around;
-  align-items: center;
-}
+
 
 .menu > li:hover {
   cursor: pointer;
@@ -58,10 +49,11 @@
 }
 
 .cart {
-  position: relative;
   display: flex;
-  cursor: pointer;
-  z-index: 99;
+    justify-content: flex-end;
+    position: relative;
+    cursor: pointer;
+    z-index: 99;
 }
 
 .badge {

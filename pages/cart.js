@@ -7,13 +7,16 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import toast, { Toaster } from 'react-hot-toast';
 import { useState } from 'react';
 import OrderModal from '../components/OrderModal';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 
 export default function cart() {
   const CartData = useStore((state) => state.cart);
   const removePizza = useStore((state) => state.removePizza);
   const [PaymentMethod, setPaymentMethod] = useState(null);
   const router = useRouter();
+  const [Order,setOrder] = useState(
+    typeof window !== 'undefined' && localStorage.getItem('order')
+  )
 
   //total HandleRemove
   const handleRemove = (i) => {
@@ -121,14 +124,17 @@ export default function cart() {
               <span>{total()} € </span>
             </div>
           </div>
-          <div className={css.buttons}>
-            <button className="btn" onClick={handleOnDelivery}>
-              Paiements Livraison
-            </button>
-            <button className="btn" onClick={handleCheckout}>
-              Paiements en Ligne
-            </button>
-          </div>
+
+          {!Order && CartData.pizzas.length > 0 ? (
+            <div className={css.buttons}>
+              <button className="btn" onClick={handleOnDelivery}>
+                Paiements Livraison
+              </button>
+              <button className="btn" onClick={handleCheckout}>
+                Paiements en Ligne
+              </button>
+            </div>
+          ) : null}
         </div>
       </div>
       <Toaster />

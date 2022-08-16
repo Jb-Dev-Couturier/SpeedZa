@@ -67,9 +67,15 @@ export default function OrderModal({ opened, setOpened, PaymentMethod }) {
           onChange={handleInput}
         ></textarea>
 
-        <span>
-          Vous payerez <span> {total} €</span> à la livraison
-        </span>
+        {PaymentMethod === 1 ? (
+          <span>
+             Vous avez payez <span> {total} €</span>
+          </span>
+        ) : (
+          <span>
+            Vous payerez <span> {total} €</span> à la livraison
+          </span>
+        )}
 
         <button type="submit" className="btn">
           Passer la commande

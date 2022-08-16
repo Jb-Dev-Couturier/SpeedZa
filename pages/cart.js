@@ -7,11 +7,13 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import toast, { Toaster } from 'react-hot-toast';
 import { useState } from 'react';
 import OrderModal from '../components/OrderModal';
+import {useRouter} from 'next/router';
 
 export default function cart() {
   const CartData = useStore((state) => state.cart);
   const removePizza = useStore((state) => state.removePizza);
   const [PaymentMethod, setPaymentMethod] = useState(null);
+  const router = useRouter();
 
   //total HandleRemove
   const handleRemove = (i) => {
@@ -24,8 +26,24 @@ export default function cart() {
 
   //total function
   const handleOnDelivery = () => {
-    setPaymentMethod(0);
     typeof window !== 'undefined' && localStorage.setItem('total', total());
+    setPaymentMethod(0);
+  };
+
+  const handleCheckout = async () => {
+    typeof window !== 'undefined' && localStorage.setItem('total', total());
+    setPaymentMethod(1);
+    const response = await fetch('/api/stripe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(CartData.pizzas),
+    });
+    if (response.status === 500) return;
+    const data = await response.json();
+    toast.loading('Redirection....');
+    router.push(data.url);
   };
   return (
     <Layout>
@@ -107,7 +125,9 @@ export default function cart() {
             <button className="btn" onClick={handleOnDelivery}>
               Paiements Livraison
             </button>
-            <button className="btn">Paiements en Ligne</button>
+            <button className="btn" onClick={handleCheckout}>
+              Paiements en Ligne
+            </button>
           </div>
         </div>
       </div>

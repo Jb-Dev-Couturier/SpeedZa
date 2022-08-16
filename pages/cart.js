@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 // import getStripe from "../lib/stripePromise";
-export default function cart() {
+export default function Cart() {
   const CartData = usestore((state) => state.cart);
   const removePizza = usestore((state) => state.removePizza);
   const [PaymentMethod, setPaymentMethod] = useState(null);

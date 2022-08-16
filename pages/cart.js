@@ -5,7 +5,7 @@ import css from '../styles/Cart.module.css';
 import { urlFor } from '../lib/client';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import toast, { Toaster } from 'react-hot-toast';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import OrderModal from '../components/OrderModal';
 import { useRouter } from 'next/router';
 
